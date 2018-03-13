@@ -25,9 +25,7 @@ public class DropBox extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	addSequential(new WristHalfDown());
     	addSequential(new OpenGripper());
-    	addSequential(new WristUp());
     	
     }
 }

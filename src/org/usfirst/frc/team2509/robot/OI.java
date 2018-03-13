@@ -10,9 +10,7 @@
 package org.usfirst.frc.team2509.robot;
 
 import org.usfirst.frc.team2509.robot.commands.ArmDown;
-import org.usfirst.frc.team2509.robot.commands.ArmHigh_2;
-import org.usfirst.frc.team2509.robot.commands.ArmHome;
-import org.usfirst.frc.team2509.robot.commands.ArmMid_2;
+import org.usfirst.frc.team2509.robot.commands.ArmUp;
 import org.usfirst.frc.team2509.robot.commands.ClimbDown;
 import org.usfirst.frc.team2509.robot.commands.ClimbUp;
 import org.usfirst.frc.team2509.robot.commands.DefualtAuto;
@@ -20,23 +18,17 @@ import org.usfirst.frc.team2509.robot.commands.DropBox;
 import org.usfirst.frc.team2509.robot.commands.Grip;
 import org.usfirst.frc.team2509.robot.commands.IntakeIn;
 import org.usfirst.frc.team2509.robot.commands.IntakeOut;
-import org.usfirst.frc.team2509.robot.commands.ManWristUp;
 import org.usfirst.frc.team2509.robot.commands.ShiftDrive;
 import org.usfirst.frc.team2509.robot.commands.ToggleUpper;
 import org.usfirst.frc.team2509.robot.commands.Wheely;
-import org.usfirst.frc.team2509.robot.commands.WristDown;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1A_2;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1B_2;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1C_2;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1F_2;
-import org.usfirst.frc.team2509.robot.commands.one.Auto1H_2;
-import org.usfirst.frc.team2509.robot.commands.one.Auto1I_2;
 import org.usfirst.frc.team2509.robot.commands.three.Auto3A_2;
 import org.usfirst.frc.team2509.robot.commands.three.Auto3B_2;
 import org.usfirst.frc.team2509.robot.commands.three.Auto3D_2;
 import org.usfirst.frc.team2509.robot.commands.three.Auto3E_2;
-import org.usfirst.frc.team2509.robot.commands.three.Auto3G_2;
-import org.usfirst.frc.team2509.robot.commands.three.Auto3J_2;
 import org.usfirst.frc.team2509.robot.commands.two.Auto2A_2;
 import org.usfirst.frc.team2509.robot.commands.two.Auto2B_2;
 import org.usfirst.frc.team2509.robot.commands.two.Auto2C_2;
@@ -58,20 +50,15 @@ public class OI {
 	public Joystick CoOperatorStick;
 	private JoystickButton ShiftButton;
 	private JoystickButton wheelyButton;
-	private JoystickButton MidArmButton;
-	private JoystickButton HighArmButton;
+	private JoystickButton ArmUpButton;
 	private JoystickButton ArmDownButton;
 	private JoystickButton GripButton;
 	private JoystickButton IntakeInButton;
 	private JoystickButton IntakeOutButton;
-	private JoystickButton WristUpButton;
-	private JoystickButton WristDownButton;
 	private JoystickButton RetractButton;
 	private JoystickButton ClimbButton;
 	private JoystickButton ClimbDownButton;
-	private JoystickButton ArmHomeButton;
 	private JoystickButton DropBoxButton;
-	private JoystickButton ManualWristUp;
 	//private JoystickButton ParaTestButton;
 	public SendableChooser<String> chooser = new SendableChooser<>();
 	public String defaultAuto = "Default";
@@ -115,40 +102,37 @@ public class OI {
 		CoOperatorStick = new Joystick(1);
 		ShiftButton = new JoystickButton(OperatorStick, 2);
 			ShiftButton.whenPressed(new ShiftDrive());
+			
 		wheelyButton = new JoystickButton(OperatorStick,3);
 			wheelyButton.toggleWhenActive(new Wheely());
-		MidArmButton = new JoystickButton(CoOperatorStick, 2);
-//			MidArmButton.whileHeld(new ArmMid());
-			MidArmButton.whileHeld(new ArmMid_2());
-		HighArmButton = new JoystickButton(CoOperatorStick, 4);
-			HighArmButton.whileHeld(new ArmHigh_2());
+			
+		ArmUpButton = new JoystickButton(CoOperatorStick, 4);
+			ArmUpButton.whileHeld(new ArmUp());
+		
 		ArmDownButton = new JoystickButton(CoOperatorStick, 8);
 			ArmDownButton.whileHeld(new ArmDown());
+		
 		RetractButton = new JoystickButton(CoOperatorStick, 7);
 			RetractButton.toggleWhenPressed(new ToggleUpper());
+	
 		GripButton = new JoystickButton(CoOperatorStick, 1);
 			GripButton.toggleWhenPressed(new Grip());
-		IntakeInButton = new JoystickButton(OperatorStick, 1);//will be coop button1 later, is operator for testing
-		//IntakeInButton = new JoystickButton(CoOperatorStick, 1);
+		
+		IntakeInButton = new JoystickButton(OperatorStick, 1);
 			IntakeInButton.whileHeld(new IntakeIn());
-		IntakeOutButton = new JoystickButton(OperatorStick, 10);//will be coop button2 later, is operator for testing
-		//IntakeInButton = new JoystickButton(CoOperatorStick, 2);
+		
+		IntakeOutButton = new JoystickButton(OperatorStick, 10);
 			IntakeOutButton.whileHeld(new IntakeOut());
-//		WristUpButton = new JoystickButton(OperatorStick, 7);
-//			WristUpButton.whileHeld(new WristUp());
-		WristDownButton =new JoystickButton(OperatorStick, 8);
-			WristDownButton.whileHeld(new WristDown());
+		
 		ClimbButton = new JoystickButton(CoOperatorStick, 5);
 			ClimbButton.whileHeld(new ClimbUp());
+		
 		ClimbDownButton = new JoystickButton(CoOperatorStick, 9);
 			ClimbDownButton.whileHeld(new ClimbDown());
-		ArmHomeButton = new JoystickButton(CoOperatorStick, 3);
-			ArmHomeButton.whenPressed(new ArmHome());
-//			ArmHomeButton.whileHeld(new ArmHome());
+			
 		DropBoxButton = new JoystickButton(CoOperatorStick,6);
 			DropBoxButton.whileHeld(new DropBox());
-		ManualWristUp = new JoystickButton(OperatorStick, 7);
-			ManualWristUp.whileHeld(new ManWristUp());
+			
 		chooser.addDefault("Default Auto", defaultAuto);
 		chooser.addObject("1X", X1);
 		chooser.addObject("1AB", AB1);
@@ -164,18 +148,13 @@ public class OI {
 		
 
 		SmartDashboard.putData(new ShiftDrive());
-		SmartDashboard.putData(new ArmMid_2());
-		SmartDashboard.putData(new ArmHigh_2());
 		SmartDashboard.putData(new ToggleUpper());
 		SmartDashboard.putData(new Grip());
 		SmartDashboard.putData(new IntakeIn());
 		SmartDashboard.putData(new IntakeOut());
-		SmartDashboard.putData(new WristDown());
 		SmartDashboard.putData(new ClimbUp());
 		SmartDashboard.putData(new ClimbDown());
-		SmartDashboard.putData(new ArmHome());
 		SmartDashboard.putData(new DropBox());
-		SmartDashboard.putData(new ManWristUp());
 		SmartDashboard.putData(new Wheely());
 	}
 	/**
@@ -188,13 +167,6 @@ public class OI {
 			SmartDashboard.putNumber("Right Encoder", Robot.drivetrain.getRightEncoder().get());
 			SmartDashboard.putNumber("Gyro", Robot.drivetrain.getGyro().getAngle());
 			SmartDashboard.putNumber("Accel", Robot.drivetrain.getGyro().getRawAccelY());
-			SmartDashboard.putBoolean("Arm Backup",  Robot.arm.getBackupLimit().get());
-			SmartDashboard.putBoolean("Arm Lower", Robot.arm.getLowerLimit().get());
-			SmartDashboard.putBoolean("Arm Middle", Robot.arm.getMiddleLimit().get());
-			SmartDashboard.putBoolean("Arm Upper", Robot.arm.getUpperLimit().get());
-//			SmartDashboard.putBoolean("Wrist Lower", Robot.wrist.getLowerLimit().get());
-//			SmartDashboard.putBoolean("Wrist Upper", Robot.wrist.getUpperLimit().get());
-			SmartDashboard.putNumber("WristEncoder", RobotMap.WristEncoder.get());
 //    		SmartDashboard.putNumber("Left Motors", Robot.drivetrain.getLeft().get());
 //    		SmartDashboard.putNumber("Right Motors", Robot.drivetrain.getRight().get());
 			
@@ -224,15 +196,6 @@ public class OI {
 					autoCommand = new Auto1C_2();
 				}else if(gameData.charAt(0)=='R') {
 					autoCommand = new Auto1F_2();
-				}
-			}
-			break;
-		case "1IH":
-			if(gameData.length()>0) {
-				if(gameData.charAt(1)=='L') {
-					autoCommand = new Auto1I_2();
-				}else if(gameData.charAt(1)=='R') {
-					autoCommand = new Auto1H_2();
 				}
 			}
 			break;
@@ -276,17 +239,6 @@ public class OI {
 				}else if(gameData.charAt(0)=='R') {
 					SmartDashboard.putString("Auto", "3D");
 					autoCommand = new Auto3D_2();
-				}
-			}
-			break;
-		case "3GJ":
-			if(gameData.length()>0) {
-				if(gameData.charAt(1)=='L') {
-					autoCommand = new Auto3G_2();
-					SmartDashboard.putString("Auto", "3G");
-				}else if(gameData.charAt(1)=='R') {
-					autoCommand = new Auto3J_2();
-					SmartDashboard.putString("Auto", "3J");
 				}
 			}
 			break;

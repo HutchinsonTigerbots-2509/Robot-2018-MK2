@@ -1,7 +1,7 @@
 package org.usfirst.frc.team2509.robot.commands.one;
 
-import org.usfirst.frc.team2509.robot.commands.ArmHome;
-import org.usfirst.frc.team2509.robot.commands.ArmMid_2;
+import org.usfirst.frc.team2509.robot.commands.ArmDown;
+import org.usfirst.frc.team2509.robot.commands.ArmUp;
 import org.usfirst.frc.team2509.robot.commands.CloseGripper;
 import org.usfirst.frc.team2509.robot.commands.DriveForward;
 import org.usfirst.frc.team2509.robot.commands.DriveTurn;
@@ -37,24 +37,24 @@ public class Auto1E_2_DosBOX extends CommandGroup {
     	//Hey i need this to push?
     	addSequential(new DriveForward(210));
     	addSequential(new DriveTurn(90));
-    	addParallel(new ArmMid_2());
+    	addParallel(new ArmUp());
     	addSequential(new DriveForward(50));
     	addSequential(new DriveTurn(90));
     	addSequential(new DriveForward(2));
     	addSequential(new DropBox());
     	addSequential(new driveBackward(20));
-    	addSequential(new ArmHome());
+    	addSequential(new ArmDown());
     	addSequential(new OpenGripper());
     	addSequential(new DriveTurn(30));
     	addParallel(new IntakeIn());
     	addSequential(new DriveForward(5));
     	addSequential(new CloseGripper());
-    	addParallel(new ArmMid_2());
+    	addParallel(new ArmUp());
     	addSequential(new driveBackward(5));
     	addSequential(new DriveTurn(-30));
     	addSequential(new DriveForward(5));
     	addSequential(new DropBox());
     	addSequential(new driveBackward());
-    	addSequential(new ArmMid_2());
+    	addSequential(new ArmUp());
     }
 }
