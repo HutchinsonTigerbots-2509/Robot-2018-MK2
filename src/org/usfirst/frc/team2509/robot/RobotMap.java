@@ -48,6 +48,7 @@ public class RobotMap {
 	public static DifferentialDrive RobotDrive;
 	//Arm Variable
 	public static DoubleSolenoid Arm_Piston;
+	public static DoubleSolenoid Arm_Punch;
 	//Gripper Variable
 	public static DigitalInput Gripper_Limit;
 	public static DoubleSolenoid Gripper_Piston;
@@ -107,7 +108,8 @@ public class RobotMap {
 		
 		RobotDrive = new DifferentialDrive(DriveTrain_Left,DriveTrain_Right);
 		//Arm Variable Initialize
-		Arm_Piston = new DoubleSolenoid(3,2);
+		Arm_Piston = new DoubleSolenoid(2,3);
+		Arm_Punch = new DoubleSolenoid(4,5);
 		
 		//Gripper Variable Initialize
 		Gripper_Limit = new DigitalInput(10);

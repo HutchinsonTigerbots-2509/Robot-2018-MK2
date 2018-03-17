@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *in the place where you want it to. We use this mainly to move the arm into a place where
  */
 public class Arm extends Subsystem {
-	private static DoubleSolenoid ArmPiston = RobotMap.Arm_Piston;
-	
+	private static DoubleSolenoid piston = RobotMap.Arm_Piston;
+	private static DoubleSolenoid punch = RobotMap.Arm_Punch;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -24,13 +24,23 @@ public class Arm extends Subsystem {
     
     //Extends the piston attached to the arm	
     public void Up() {
-    	ArmPiston.set(DoubleSolenoid.Value.kForward);
+    	piston.set(DoubleSolenoid.Value.kForward);
     }
      //Retracts the piston attached to the arm
     public void Down() {
-    	ArmPiston.set(DoubleSolenoid.Value.kReverse);
+    	piston.set(DoubleSolenoid.Value.kReverse);
     }
-    public DoubleSolenoid getArmPiston() {
-    	return ArmPiston;
+    public DoubleSolenoid getPiston() {
+    	return piston;
+    }
+    public void Out() {
+    	punch.set(DoubleSolenoid.Value.kForward);
+    }
+     //Retracts the piston attached to the arm
+    public void In() {
+    	punch.set(DoubleSolenoid.Value.kReverse);
+    }
+    public DoubleSolenoid getPunch() {
+    	return punch;
     }
   }

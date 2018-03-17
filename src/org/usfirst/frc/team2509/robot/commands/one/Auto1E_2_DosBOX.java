@@ -5,7 +5,6 @@ import org.usfirst.frc.team2509.robot.commands.ArmUp;
 import org.usfirst.frc.team2509.robot.commands.CloseGripper;
 import org.usfirst.frc.team2509.robot.commands.DriveForward;
 import org.usfirst.frc.team2509.robot.commands.DriveTurn;
-import org.usfirst.frc.team2509.robot.commands.DropBox;
 import org.usfirst.frc.team2509.robot.commands.IntakeIn;
 import org.usfirst.frc.team2509.robot.commands.OpenGripper;
 import org.usfirst.frc.team2509.robot.commands.driveBackward;
@@ -41,7 +40,7 @@ public class Auto1E_2_DosBOX extends CommandGroup {
     	addSequential(new DriveForward(50));
     	addSequential(new DriveTurn(90));
     	addSequential(new DriveForward(2));
-    	addSequential(new DropBox());
+//    	addSequential(new DropBox());
     	addSequential(new driveBackward(20));
     	addSequential(new ArmDown());
     	addSequential(new OpenGripper());
@@ -53,7 +52,7 @@ public class Auto1E_2_DosBOX extends CommandGroup {
     	addSequential(new driveBackward(5));
     	addSequential(new DriveTurn(-30));
     	addSequential(new DriveForward(5));
-    	addSequential(new DropBox());
+//    	addSequential(new DropBox());
     	addSequential(new driveBackward());
     	addSequential(new ArmUp());
     }
