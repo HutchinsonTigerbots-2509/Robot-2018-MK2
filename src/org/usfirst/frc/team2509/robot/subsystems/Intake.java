@@ -7,7 +7,8 @@ import  edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *This is the Intake subsystem. Its function is to pull in the box or shoot it out, depending on the situation. This
+ *allows our gripper to take in boxes and shoot them out again if it is a failed attempt (along with using Arm.punch).
  */
 public class Intake extends Subsystem {
 	private static VictorSP leftMotor = RobotMap.Intake_LeftMotor;
@@ -52,6 +53,9 @@ public class Intake extends Subsystem {
     	rightMotor.set(0);
     	
     }
+    /**
+     * Sets the motors in reverse direction so it shoots out the box
+     */
     public void reverse() {
     	leftMotor.set(0.9);
     	rightMotor.set(0.9);

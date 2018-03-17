@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *There is a vault next to '2'. We put a push a box into there and then go grab another from the group in between
+ *positions 'A' and 'B'. After gaining another box, we put the box into the same vault as before.
  */
 public class Auto2X extends Command {
 

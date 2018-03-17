@@ -7,7 +7,7 @@ import org.usfirst.frc.team2509.robot.subsystems.Intake;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Takes the box in so we can grab it with our gripper
  */
 public class IntakeIn extends Command {
 	private Intake intake = Robot.intake;

@@ -6,7 +6,7 @@ import org.usfirst.frc.team2509.robot.subsystems.Intake;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Shoots the box by flipping the direction the motors are turning
  */
 public class IntakeOut extends Command {
 	private Intake intake = Robot.intake;

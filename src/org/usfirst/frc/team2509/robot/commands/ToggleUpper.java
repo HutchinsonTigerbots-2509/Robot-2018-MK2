@@ -7,7 +7,9 @@ import org.usfirst.frc.team2509.robot.subsystems.Gripper;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *ToggleUpper is used to lift the arm up to the position where it
+ *will drop the box into the switch. It also opens the gripper to 
+ *drop the box.
  */
 public class ToggleUpper extends Command {
 	Arm arm = Robot.arm;

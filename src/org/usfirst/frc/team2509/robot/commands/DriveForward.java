@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *We use this command in autonomous to drive forward a certain distance. Enter the distance you
+ *want the robot to go in () when we call this command.
  */
 public class DriveForward extends Command {
 	private DriveTrain drive = Robot.drivetrain;

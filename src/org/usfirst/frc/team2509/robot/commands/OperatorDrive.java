@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *This command is used for TeleOp. It allows the joystick to drive the robot.
  */
 public class OperatorDrive extends Command {
 	private DriveTrain drivetrain = Robot.drivetrain;

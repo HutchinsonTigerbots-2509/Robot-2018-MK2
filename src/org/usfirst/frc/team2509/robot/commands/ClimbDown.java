@@ -6,7 +6,7 @@ import org.usfirst.frc.team2509.robot.subsystems.Climber;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *We us this to climb. This brings the climber down so that the robot is moved up
  */
 public class ClimbDown extends Command {
 	public Climber climb = Robot.climber;

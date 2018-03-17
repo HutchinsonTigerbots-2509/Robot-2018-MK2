@@ -11,7 +11,15 @@ import org.usfirst.frc.team2509.robot.commands.driveBackward;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
+ *1			 C
+ *		A |-----| E
+ *		  |     |
+ *		  |     |
+ *2		  |     |
+ *		B |-----| F
+ *3			 D
  *
+ *We are going to the 'C; position from '2'
  */
 public class Auto2C_2 extends CommandGroup {
 

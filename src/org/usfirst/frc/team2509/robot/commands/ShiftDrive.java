@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ *Shifts us between high and low gear
  */
 public class ShiftDrive extends Command {
 	private boolean isExtended;

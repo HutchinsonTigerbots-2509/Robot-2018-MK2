@@ -6,7 +6,7 @@ import org.usfirst.frc.team2509.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Our default Autonomous command so we can cross the line of autonomous and get a ranking point
  */
 public class DefualtAuto extends Command {
 	DriveTrain driveTrain = Robot.drivetrain;

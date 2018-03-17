@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *We use this to turn in autonomous. You set a degree you want to turn (- is left and + is right) 
+ *in the () when you call this command. This will set robot to turn that specific distance 
  */
 public class DriveTurn extends Command {
 	private DriveTrain drive = Robot.drivetrain;

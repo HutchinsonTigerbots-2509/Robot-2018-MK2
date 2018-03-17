@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Closes gripper so that we can grab onto the box
  */
 public class CloseGripper extends Command {
 	private static DoubleSolenoid piston = RobotMap.Gripper_Piston;
