@@ -67,6 +67,8 @@ public class RobotMap {
 		comp = new Compressor();
 		cam = CameraServer.getInstance().startAutomaticCapture();
 		cam.setBrightness(50);
+		cam.setFPS(25);
+//		cam.setResolution(160, 120);
 		//Drivetrain Variable Initialize
 		DriveTrain_Shifter = new DoubleSolenoid(0,1);
 		

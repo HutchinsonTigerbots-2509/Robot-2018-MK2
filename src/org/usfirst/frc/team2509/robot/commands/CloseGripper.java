@@ -20,7 +20,7 @@ public class CloseGripper extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println(DriverStation.getInstance().getMatchTime()+"Gripper Close");
+    	System.out.println(DriverStation.getInstance().getMatchTime()+" - Gripper Close");
     	piston.set(DoubleSolenoid.Value.kReverse);
     }
 

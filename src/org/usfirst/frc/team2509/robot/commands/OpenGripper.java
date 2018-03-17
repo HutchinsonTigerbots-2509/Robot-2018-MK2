@@ -20,7 +20,7 @@ public class OpenGripper extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println(DriverStation.getInstance().getMatchTime()+"Gripper Open");
+    	System.out.println(DriverStation.getInstance().getMatchTime()+" - Gripper Open");
     	grip.open();
     }
 

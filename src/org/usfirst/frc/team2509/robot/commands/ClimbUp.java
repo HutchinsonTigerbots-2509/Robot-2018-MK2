@@ -3,7 +3,7 @@ package org.usfirst.frc.team2509.robot.commands;
 import org.usfirst.frc.team2509.robot.Robot;
 import org.usfirst.frc.team2509.robot.subsystems.Climber;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -19,7 +19,7 @@ public class ClimbUp extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	climb.Up();
-    	Robot.drivetrain.getWheely().set(DoubleSolenoid.Value.kReverse);
+    	System.out.println(DriverStation.getInstance().getMatchTime()+" - Climb Up");
     }
 
     // Called repeatedly when this Command is scheduled to run
