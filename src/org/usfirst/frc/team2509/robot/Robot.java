@@ -100,7 +100,6 @@ public class Robot extends TimedRobot{
 			autonomousCommand.start();
 		}
     	System.out.println("Autonomous Starting");
-		drivetrain.wheely();
 	}
 
 	/**
@@ -122,7 +121,6 @@ public class Robot extends TimedRobot{
 			autonomousCommand.cancel();
 		}
     	System.out.println("Teleop Starting");
-		drivetrain.wheely();
 		operatorDrive.start();
 		RobotMap.comp.start();
 	}

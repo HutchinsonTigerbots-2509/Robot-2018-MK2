@@ -49,6 +49,7 @@ public class RobotMap {
 	//Arm Variable
 	public static DoubleSolenoid Arm_Piston;
 	public static DoubleSolenoid Arm_Punch;
+	public static DigitalInput Arm_Limit;
 	//Gripper Variable
 	public static DigitalInput Gripper_Limit;
 	public static DoubleSolenoid Gripper_Piston;
@@ -70,10 +71,7 @@ public class RobotMap {
 		cam.setFPS(25);
 //		cam.setResolution(160, 120);
 		//Drivetrain Variable Initialize
-		DriveTrain_Shifter = new DoubleSolenoid(0,1);
-		
-		DriveTrain_Wheely = new DoubleSolenoid(1,2,3);
-		
+		DriveTrain_Shifter = new DoubleSolenoid(0,1);		
 		
 		DriveTrain_LeftEncoder = new Encoder(0,1);
 		DriveTrain_LeftEncoder.setDistancePerPulse(0.0179136);
@@ -112,6 +110,8 @@ public class RobotMap {
 		//Arm Variable Initialize
 		Arm_Piston = new DoubleSolenoid(2,3);
 		Arm_Punch = new DoubleSolenoid(4,5);
+		Arm_Limit = new DigitalInput(4);
+		SmartDashboard.putBoolean("Arm Limit", Arm_Limit.get());
 		
 		//Gripper Variable Initialize
 		Gripper_Limit = new DigitalInput(10);

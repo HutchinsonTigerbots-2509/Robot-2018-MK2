@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2509.robot.commands;
 
 import org.usfirst.frc.team2509.robot.Robot;
+import org.usfirst.frc.team2509.robot.subsystems.Gripper;
 import org.usfirst.frc.team2509.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -10,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class IntakeIn extends Command {
 	private Intake intake = Robot.intake;
+	private Gripper grip = Robot.gripper;
     public IntakeIn() {
     	requires(Robot.intake);
         // Use requires() here to declare subsystem dependencies
@@ -18,6 +20,7 @@ public class IntakeIn extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	grip.close();
     	intake.extend();
     	intake.on();
     }

@@ -20,7 +20,6 @@ import org.usfirst.frc.team2509.robot.commands.IntakeOut;
 import org.usfirst.frc.team2509.robot.commands.PushBox;
 import org.usfirst.frc.team2509.robot.commands.ShiftDrive;
 import org.usfirst.frc.team2509.robot.commands.ToggleUpper;
-import org.usfirst.frc.team2509.robot.commands.Wheely;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1A_2;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1B_2;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1C_2;
@@ -156,7 +155,7 @@ public class OI {
 		SmartDashboard.putData(new ClimbUp());
 		SmartDashboard.putData(new ClimbDown());
 		SmartDashboard.putData(new PushBox());
-		SmartDashboard.putData(new Wheely());
+
 	}
 	/**
 	 * When called constantly updates the SmartDashboard
@@ -168,6 +167,8 @@ public class OI {
 			SmartDashboard.putNumber("Right Encoder", Robot.drivetrain.getRightEncoder().get());
 			SmartDashboard.putNumber("Gyro", Robot.drivetrain.getGyro().getAngle());
 			SmartDashboard.putNumber("Accel", Robot.drivetrain.getGyro().getRawAccelY());
+
+			SmartDashboard.putBoolean("Arm Limit", Robot.arm.getLimit().get());
 //    		SmartDashboard.putNumber("Left Motors", Robot.drivetrain.getLeft().get());
 //    		SmartDashboard.putNumber("Right Motors", Robot.drivetrain.getRight().get());
 			

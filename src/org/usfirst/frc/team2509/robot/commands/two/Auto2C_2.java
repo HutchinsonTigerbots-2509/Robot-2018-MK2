@@ -4,6 +4,7 @@ import org.usfirst.frc.team2509.robot.commands.ArmDown;
 import org.usfirst.frc.team2509.robot.commands.ArmUp;
 import org.usfirst.frc.team2509.robot.commands.DriveForward;
 import org.usfirst.frc.team2509.robot.commands.DriveTurn;
+import org.usfirst.frc.team2509.robot.commands.DriveTurnCorrection;
 import org.usfirst.frc.team2509.robot.commands.OpenGripper;
 import org.usfirst.frc.team2509.robot.commands.driveBackward;
 
@@ -33,11 +34,14 @@ public class Auto2C_2 extends CommandGroup {
         // arm.
     	addSequential(new DriveForward(40));
     	addSequential(new DriveTurn(-90));
+    	addSequential(new DriveTurnCorrection(-90));
     	addSequential(new DriveForward(95)); 
     	addSequential(new DriveTurn(90));
+    	addSequential(new DriveTurnCorrection(90));
     	addSequential(new DriveForward(65));
     	addSequential(new ArmUp());
     	addSequential(new DriveTurn(90));
+    	addSequential(new DriveTurnCorrection(90));
     	addSequential(new DriveForward(15));
     	//Drop Box
     	addSequential(new OpenGripper());

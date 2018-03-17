@@ -4,6 +4,7 @@ import org.usfirst.frc.team2509.robot.commands.ArmDown;
 import org.usfirst.frc.team2509.robot.commands.ArmUp;
 import org.usfirst.frc.team2509.robot.commands.DriveForward;
 import org.usfirst.frc.team2509.robot.commands.DriveTurn;
+import org.usfirst.frc.team2509.robot.commands.DriveTurnCorrection;
 import org.usfirst.frc.team2509.robot.commands.OpenGripper;
 import org.usfirst.frc.team2509.robot.commands.driveBackward;
 
@@ -33,11 +34,13 @@ public class Auto3E_2 extends CommandGroup {
         // arm.
     	addSequential(new DriveForward(210));
     	addSequential(new DriveTurn(-90));
+    	addSequential(new DriveTurnCorrection(-90));
     	addParallel(new ArmUp());
     	addSequential(new DriveForward(163)); 
     	addSequential(new ArmUp());
     	addSequential(new DriveTurn(-90));
-    	addSequential(new DriveForward(15));
+    	addSequential(new DriveTurnCorrection(-90));
+    	addSequential(new DriveForward(25));
     	//Drop Box
     	addSequential(new OpenGripper());
     	//

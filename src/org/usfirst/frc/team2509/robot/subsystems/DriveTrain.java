@@ -23,7 +23,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class DriveTrain extends Subsystem implements PIDOutput{
 	//Subsystem Variables
 	private static DoubleSolenoid Shifter = RobotMap.DriveTrain_Shifter;
-	private static DoubleSolenoid Wheely = RobotMap.DriveTrain_Wheely;
 	private static Encoder LeftEncoder = RobotMap.DriveTrain_LeftEncoder;
 	private static Encoder RightEncoder = RobotMap.DriveTrain_RightEncoder;
 	private static AHRS Gyro = RobotMap.DriveTrain_NavX;
@@ -242,9 +241,6 @@ public class DriveTrain extends Subsystem implements PIDOutput{
     	}
     	Drive.tankDrive(0, 0);
     }
-    public void wheely() {
-    	Wheely.set(DoubleSolenoid.Value.kForward);
-    }
     
     /**
      * 
@@ -252,9 +248,6 @@ public class DriveTrain extends Subsystem implements PIDOutput{
      */
     public DoubleSolenoid getShifter() {
     	return Shifter;
-    }
-    public DoubleSolenoid getWheely() {
-    	return Wheely;
     }
     /**
      * 

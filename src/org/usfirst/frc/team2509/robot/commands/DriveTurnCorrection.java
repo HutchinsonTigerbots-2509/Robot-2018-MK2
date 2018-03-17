@@ -4,19 +4,18 @@ import org.usfirst.frc.team2509.robot.Robot;
 import org.usfirst.frc.team2509.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DriveTurn extends Command {
+public class DriveTurnCorrection extends Command {
 	private DriveTrain drive = Robot.drivetrain;
 	public double target = 0;
 	private double turnSpeed = 0.7;
 	private Boolean turnRight;
 	private Boolean turnLeft;
-    public DriveTurn(double targetAngle) {
+    public DriveTurnCorrection(double targetAngle) {
     	requires(drive);
     	target = targetAngle;
         // Use requires() here to declare subsystem dependencies
@@ -26,16 +25,14 @@ public class DriveTurn extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	System.out.println(DriverStation.getInstance().getMatchTime()+" - Turing to "+target);
-    	drive.sensorReset();
-    	Timer.delay(0.1);
     	if(drive.getGyro().getAngle()>target) {
     		turnRight = true;
     		turnLeft = false;
-    		drive.getDrive().tankDrive(-0.7,0.65);
+    		drive.getDrive().tankDrive(-0.7,0.7);
     	}else if(drive.getGyro().getAngle()<target){
     		turnRight = false;
     		turnLeft = true;
-    		drive.getDrive().tankDrive(0.65, -0.7);
+    		drive.getDrive().tankDrive(0.7, -0.7);
 //    	drive.getDrive().arcadeDrive(0, 0.6);
 //    	drive.getDrive().tankDrive(-0.6, 0.6);
     	}else {
@@ -47,9 +44,9 @@ public class DriveTurn extends Command {
     protected void execute() {
 //    	drive.getDrive().tankDrive(-0.6, 0.6);
     	if(turnRight) {
-    		drive.getDrive().tankDrive(0.6,-0.6);
+    		drive.getDrive().tankDrive(0.5,-0.5);
     	}else if(turnLeft) {
-    		drive.getDrive().tankDrive(-0.6, 0.6);
+    		drive.getDrive().tankDrive(-0.5, 0.5);
     	}else {
     		end();
     	}
