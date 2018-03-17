@@ -117,8 +117,8 @@ public class OI {
 		GripButton = new JoystickButton(CoOperatorStick, 1);
 			GripButton.toggleWhenPressed(new Grip());
 		
-		IntakeInButton = new JoystickButton(CoOperatorStick, 6);
-//		IntakeInButton = new JoystickButton(OperatorStick, 1);
+//		IntakeInButton = new JoystickButton(CoOperatorStick, 6);
+		IntakeInButton = new JoystickButton(OperatorStick, 1);
 			IntakeInButton.whileHeld(new IntakeIn());
 		
 		IntakeOutButton = new JoystickButton(OperatorStick, 10);
@@ -169,6 +169,7 @@ public class OI {
 			SmartDashboard.putNumber("Accel", Robot.drivetrain.getGyro().getRawAccelY());
 
 			SmartDashboard.putBoolean("Arm Limit", Robot.arm.getLimit().get());
+			SmartDashboard.putBoolean("Shifted", Robot.drivetrain.isShifted());
 //    		SmartDashboard.putNumber("Left Motors", Robot.drivetrain.getLeft().get());
 //    		SmartDashboard.putNumber("Right Motors", Robot.drivetrain.getRight().get());
 			

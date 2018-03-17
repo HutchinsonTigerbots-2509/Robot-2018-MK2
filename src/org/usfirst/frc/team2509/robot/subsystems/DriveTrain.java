@@ -60,6 +60,24 @@ public class DriveTrain extends Subsystem implements PIDOutput{
     	RightEncoder.reset();
     	LeftEncoder.reset();
     }
+    public boolean isShifted(){
+    		if(Shifter.get() == DoubleSolenoid.Value.kForward) { 
+    			SmartDashboard.putString("isShifted", "lowGear");
+    			return true;
+    			}
+        	else if(Shifter.get() == DoubleSolenoid.Value.kReverse) {
+        		SmartDashboard.putString("isShifted", "highGear");
+        		return false;
+        	}
+        	else {return true;}
+    	
+    }
+    public void highGear() {
+    	Shifter.set(DoubleSolenoid.Value.kForward);
+    }
+    public void lowGear() {
+    	Shifter.set(DoubleSolenoid.Value.kReverse);
+    }
     /**
      * Gets angle from the Gyro to tell the motors to make a specific turn
      * @param Angle

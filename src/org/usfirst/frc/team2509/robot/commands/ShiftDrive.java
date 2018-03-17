@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -23,10 +24,11 @@ public class ShiftDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println(DriverStation.getInstance().getMatchTime()+"Drive Shifted");
+    	System.out.println(DriverStation.getInstance().getMatchTime()+" - Drive Shifted");
     	if(shifter.get() == DoubleSolenoid.Value.kForward)isExtended = true;
     	else if(shifter.get() == DoubleSolenoid.Value.kReverse)isExtended = false;
-    	
+    	else isExtended = true;
+    	SmartDashboard.putBoolean("Shifted", drivetrain.isShifted());
     	drivetrain.shift(!isExtended);
     }
 
