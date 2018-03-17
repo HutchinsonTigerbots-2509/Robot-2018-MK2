@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Shifts us between high and low gear
  */
 public class ShiftDrive extends Command {
 	private boolean isExtended;

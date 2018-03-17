@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *We call this during autonomous so we can drive backward a set distance.
  */
 public class driveBackward extends Command {
 	private DriveTrain drive = Robot.drivetrain;

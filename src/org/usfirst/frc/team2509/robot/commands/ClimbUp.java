@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Sends the climber up so we can latch onto the bar to climb
  */
 public class ClimbUp extends Command {
 	public Climber climb = Robot.climber;

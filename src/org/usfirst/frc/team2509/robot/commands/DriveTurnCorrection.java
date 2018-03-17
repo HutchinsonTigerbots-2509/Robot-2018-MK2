@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Corrects the robot if we under turn or over turn.
  */
 public class DriveTurnCorrection extends Command {
 	private DriveTrain drive = Robot.drivetrain;

@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *Moves the arm down
  */
 public class ArmDown extends Command {
 	private static Arm arm = Robot.arm;

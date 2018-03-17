@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *We did this to make our intake commands faster
  */
 public class IntakeForTime extends Command {
 	private Intake intake = Robot.intake;

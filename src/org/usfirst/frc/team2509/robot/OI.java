@@ -45,19 +45,19 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	public Joystick OperatorStick;
-	public Joystick CoOperatorStick;
-	private JoystickButton ShiftButton;
+	public Joystick OperatorStick;//The Logitech Joystick- driving related
+	public Joystick CoOperatorStick;//The xbox controller- arm related
+	private JoystickButton ShiftButton;//Changes between high and low gear
 //	private JoystickButton wheelyButton;
-	private JoystickButton ArmUpButton;
-	private JoystickButton ArmDownButton;
-	private JoystickButton GripButton;
-	private JoystickButton IntakeInButton;
-	private JoystickButton IntakeOutButton;
+	private JoystickButton ArmUpButton;//Moves the arm Up
+	private JoystickButton ArmDownButton;//Moves the arm Down
+	private JoystickButton GripButton;//Opens and closes the gripper
+	private JoystickButton IntakeInButton;//Takes box in
+	private JoystickButton IntakeOutButton;//Shoots box out
 //	private JoystickButton RetractButton;
-	private JoystickButton ClimbButton;
-	private JoystickButton ClimbDownButton;
-	private JoystickButton PushBoxButton;
+	private JoystickButton ClimbButton;//Shoots up climber system
+	private JoystickButton ClimbDownButton;//Pulls the robot up
+	private JoystickButton PushBoxButton;//Pushes box out using the piston located at in middle of the front side of the robot
 	//private JoystickButton ParaTestButton;
 	public SendableChooser<String> chooser = new SendableChooser<>();
 	public String defaultAuto = "Default";
@@ -174,6 +174,11 @@ public class OI {
 			
 		}
 	});
+	/**
+	 * This takes an input of where we need to go, and then transfers that into an autonomous command to run
+	 * @param autoChoice
+	 * @returns different Autonomous command to run
+	 */
 	public Command getAutonomous(String autoChoice){
 		
 		String gameData = DriverStation.getInstance().getGameSpecificMessage();

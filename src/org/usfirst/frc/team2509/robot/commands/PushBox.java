@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *We have a piston on the bottom of our robot. This piston is used to push the box out if we don't want it
+ *along with the IntakeOut Command.
  */
 public class PushBox extends Command {
 	private static Arm arm = Robot.arm;

@@ -31,36 +31,36 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class RobotMap {
 	
-	public static Compressor comp;
-	public static UsbCamera cam;
+	public static Compressor comp;//Gives the air tanks air
+	public static UsbCamera cam;//the camera that is attached to the robot
 	//Drivetran Variable
-	public static DoubleSolenoid DriveTrain_Shifter;
-	public static DoubleSolenoid DriveTrain_Wheely;
-	public static Encoder DriveTrain_LeftEncoder;
-	public static Encoder DriveTrain_RightEncoder;
-	public static AHRS DriveTrain_NavX;
-	public static WPI_TalonSRX DriveTrain_left1;
-	public static WPI_TalonSRX DriveTrain_left2;
-	public static WPI_TalonSRX DriveTrain_right1;
-	public static WPI_TalonSRX DriveTrain_right2;
-	public static SpeedControllerGroup DriveTrain_Left;
-	public static SpeedControllerGroup DriveTrain_Right;
-	public static DifferentialDrive RobotDrive;
+	public static DoubleSolenoid DriveTrain_Shifter;//Shifts between high and low gear
+	public static DoubleSolenoid DriveTrain_Wheely;//Keeps us from falling over
+	public static Encoder DriveTrain_LeftEncoder;//Is the encoder that keeps track of the Left wheels distance on the driveTrain
+	public static Encoder DriveTrain_RightEncoder;//Is the encoder that keeps track of the right wheels distance on the driveTrain
+	public static AHRS DriveTrain_NavX;//The gyro that keeps track of our rotation during autonomous
+	public static WPI_TalonSRX DriveTrain_left1;//Motor1 of DriveTrain_Left
+	public static WPI_TalonSRX DriveTrain_left2;//Motor2 of DriveTrain_Left
+	public static WPI_TalonSRX DriveTrain_right1;//Motor1 of DriveTrain_Right
+	public static WPI_TalonSRX DriveTrain_right2;//Motor2 or DriveTrain_Right
+	public static SpeedControllerGroup DriveTrain_Left;//Groups DriveTrain_left1 and DriveTrain_left2 together
+	public static SpeedControllerGroup DriveTrain_Right;//Groups DriveTrain_right1 and DriveTrain_right2 together
+	public static DifferentialDrive RobotDrive;//Groups DriveTrain_Left and DriveTrain_Right together
 	//Arm Variable
-	public static DoubleSolenoid Arm_Piston;
-	public static DoubleSolenoid Arm_Punch;
+	public static DoubleSolenoid Arm_Piston;//The piston that lifts the arm Up or Down
+	public static DoubleSolenoid Arm_Punch;//Pushes the box out if we don't like it
 	public static DigitalInput Arm_Limit;
 	//Gripper Variable
 	public static DigitalInput Gripper_Limit;
-	public static DoubleSolenoid Gripper_Piston;
+	public static DoubleSolenoid Gripper_Piston;//The piston that opens and closes the gripper
 	//Intake Variable
-	public static DoubleSolenoid Intake_Piston;
-	public static VictorSP Intake_LeftMotor;
-	public static VictorSP Intake_RightMotor;
+	public static DoubleSolenoid Intake_Piston;//Extends or retracts the Intake subsystem
+	public static VictorSP Intake_LeftMotor;//The motor on the right intake
+	public static VictorSP Intake_RightMotor;//The motor on the left intake
 	//Climb Variable
-	public static VictorSP Climb_Motor1;
-	public static VictorSP Climb_Motor2;
-	public static SpeedControllerGroup Climb_motors;
+	public static VictorSP Climb_Motor1;//A Motor that allows us to climb
+	public static VictorSP Climb_Motor2;//A Motor that allows us to climb
+	public static SpeedControllerGroup Climb_motors;//Groups Climb_Motor1 and Climb_Motor2 together
 	/**
 	 * 
 	 */

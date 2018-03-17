@@ -31,14 +31,18 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends TimedRobot{
 	
-	public static OI oi;
-	public static DriveTrain drivetrain;
-	public static Arm arm;
-	public static Climber climber;
-	public static Gripper gripper;
-	public static Intake intake;
-	public Command autonomousCommand;
-	public Command operatorDrive;
+	public static OI oi;//Defines the OI.java so it is easier to import
+	
+	//Subsystems
+	public static DriveTrain drivetrain;//The DriveTrain Subsystem
+	public static Arm arm;//The arm Subsystem
+	public static Climber climber;//The climber subsystem
+	public static Gripper gripper;//The gripper subsystem
+	public static Intake intake;//The Intake subsystem
+	
+	//Commands
+	public Command autonomousCommand;//The command we send to our robot to tell it where to go during Autonomous
+	public Command operatorDrive;//The command that allows us to drive during TeleOp
 
 	/**
 	 * This function is run when the robot is first started up and should be

@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ *Here contains all of our driving methods.
  */
 public class DriveTrain extends Subsystem implements PIDOutput{
 	//Subsystem Variables
@@ -43,9 +43,18 @@ public class DriveTrain extends Subsystem implements PIDOutput{
         //setDefaultCommand(new MySpecialCommand());
     	//For a reason unknown to you
     }
+    /**
+     * Uses the joystick to drive
+     * @param stick
+     */
     public static void drive(Joystick stick) {
     	Drive.arcadeDrive(slowReverse(getScaledDrive(-stick.getY())), getScaledDrive(-stick.getZ()));
     }
+    /**
+     * 
+     * @param input
+     * @return modified input
+     */
     public static double slowReverse(double input) {
     	if(input<0) {
     		input = input*0.8;
@@ -67,6 +76,10 @@ public class DriveTrain extends Subsystem implements PIDOutput{
     public static double getScaledDrive(double input) {
 		return input*((Robot.oi.OperatorStick.getRawAxis(3)+3)*0.25);
     }
+    /**
+	 * This takes a targetAngle and tells the Gyro to turn to that specific angle.
+	 * Much like an encoder, a Gyro takes readings from the robot and transefers 
+	 */
     public void rotate(double targetAngle) {
     	Gyro.reset();
     	Timer.delay(0.1);
@@ -186,6 +199,10 @@ public class DriveTrain extends Subsystem implements PIDOutput{
     	}
     	Drive.tankDrive(0, 0);
     }
+    /**
+     * It takes a target distance and moves the robot backwards until we reach that distance
+     * @param targetDistance
+     */
     public void driveBackward(double targetDistance) {
     	sensorReset();
     	double wheelDiameter = 6;

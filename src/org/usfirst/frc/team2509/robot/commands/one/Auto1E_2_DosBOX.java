@@ -12,7 +12,16 @@ import org.usfirst.frc.team2509.robot.commands.driveBackward;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
+ *1			 C
+ *		A |-----| E
+ *		  |     |
+ *		  |     |
+ *2		  |     |
+ *		B |-----| F
+ *3			 D
  *
+ *We go to the 'E' position from '1' and drop a box. There will be a row of boxes in front of us (that is where we get our second
+ *box from). After grabbing another box, we will drop it again into the 'E'.
  */
 public class Auto1E_2_DosBOX extends CommandGroup {
 

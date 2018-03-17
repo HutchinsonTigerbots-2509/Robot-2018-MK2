@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *We use this for the button. It is set up so if it is open, it will open when the button is pressed and vice
+ *versa. In the initialize void, it closes the gripper. In the end void, it opens the gripper
  */
 public class Grip extends Command {
 	Gripper grip = Robot.gripper;

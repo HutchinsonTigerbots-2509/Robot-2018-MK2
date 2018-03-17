@@ -7,10 +7,16 @@ import org.usfirst.frc.team2509.robot.commands.driveBackward;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE
- *UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE
- *UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE
- *UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE UNTESTED DO NOT USE
+ *1			 C
+ *		A |-----| E
+ *		  |     |
+ *X		  |     |
+ *2		  |     |
+ *		B |-----| F
+ *3			 D
+ *
+ *There is a vault next to '2'. We put a push a box into there and then go grab another from the group in between
+ *positions 'A' and 'B'. After gaining another box, we put the box into the same vault as before.
  */
 public class Auto2X_2 extends CommandGroup {
 

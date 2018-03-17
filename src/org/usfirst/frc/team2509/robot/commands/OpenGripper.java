@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ *This opens our gripper
  */
 public class OpenGripper extends Command {
 	private static Gripper grip = Robot.gripper;
