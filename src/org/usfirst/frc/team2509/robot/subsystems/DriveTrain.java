@@ -1,8 +1,8 @@
 package org.usfirst.frc.team2509.robot.subsystems;
 
-import org.usfirst.frc.team2509.robot.OI;
 import org.usfirst.frc.team2509.robot.Robot;
 import org.usfirst.frc.team2509.robot.RobotMap;
+//import org.usfirst.frc.team2509.robot.OI;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
@@ -36,7 +36,7 @@ public class DriveTrain extends Subsystem implements PIDOutput{
 	private static SpeedControllerGroup Left = RobotMap.DriveTrain_Left;
 	private static SpeedControllerGroup Right = RobotMap.DriveTrain_Right;
 	private static DifferentialDrive Drive = RobotMap.RobotDrive;
-	private static OI oi = Robot.oi;
+//	private static OI oi = Robot.oi;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void initDefaultCommand() {
@@ -126,7 +126,7 @@ public class DriveTrain extends Subsystem implements PIDOutput{
     }
     public void AccDriveMark2(double targetDistance) {
     	sensorReset();
-    	double wheelDiameter = 6;
+//    	double wheelDiameter = 6;
 //    	double target = (targetDistance/(wheelDiameter*Math.PI))*3*360;
     	double target = targetDistance;
     	Timer.delay(0.1);
