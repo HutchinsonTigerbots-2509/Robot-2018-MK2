@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *Contains extendArmPiston, retractArmPiston, and getArmPiston.
+ *Contains Arm.Up, Arm.Down, and getArmPiston.
  *@
  *The Arm has the gripper and wrist attached to it. When you extend/retract the Arm, it will move the gripper and wrist
  *in the place where you want it to. We use this mainly to move the arm into a place where
