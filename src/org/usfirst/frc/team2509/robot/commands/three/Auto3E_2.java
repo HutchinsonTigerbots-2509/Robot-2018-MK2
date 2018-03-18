@@ -40,11 +40,11 @@ public class Auto3E_2 extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new DriveForward(210));
+    	addSequential(new DriveForward(205));
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
     	addParallel(new ArmUp());
-    	addSequential(new DriveForward(163)); 
+    	addSequential(new DriveForward(150)); 
     	addSequential(new ArmUp());
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
@@ -52,7 +52,7 @@ public class Auto3E_2 extends CommandGroup {
     	//Drop Box
     	addSequential(new OpenGripper());
     	//
-    	addSequential(new driveBackward(15));
+    	addSequential(new driveBackward(5));
     	addSequential(new ArmDown());
     }
 }

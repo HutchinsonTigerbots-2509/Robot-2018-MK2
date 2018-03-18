@@ -43,7 +43,7 @@ public class Auto2A_2 extends CommandGroup {
     	addSequential(new DriveForward(35));
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
-    	addSequential(new DriveForward(42)); 
+    	addSequential(new DriveForward(37)); 
     	addSequential(new DriveTurn(90));
     	addSequential(new DriveTurnCorrection(90));
     	addSequential(new ArmUp());

@@ -82,10 +82,10 @@ public class DriveTrain extends Subsystem implements PIDOutput{
     	
     }
     public void highGear() {
-    	Shifter.set(DoubleSolenoid.Value.kForward);
+    	Shifter.set(DoubleSolenoid.Value.kReverse);
     }
     public void lowGear() {
-    	Shifter.set(DoubleSolenoid.Value.kReverse);
+    	Shifter.set(DoubleSolenoid.Value.kForward);
     }
     /**
      * Gets angle from the Gyro to tell the motors to make a specific turn

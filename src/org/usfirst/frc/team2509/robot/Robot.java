@@ -127,7 +127,7 @@ public class Robot extends TimedRobot{
 		}
     	System.out.println("Teleop Starting");
 		operatorDrive.start();
-		drivetrain.highGear();
+		drivetrain.lowGear();
 		RobotMap.comp.start();
 	}
 
