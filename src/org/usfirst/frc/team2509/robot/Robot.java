@@ -14,6 +14,7 @@ import org.usfirst.frc.team2509.robot.subsystems.Climber;
 import org.usfirst.frc.team2509.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2509.robot.subsystems.Gripper;
 import org.usfirst.frc.team2509.robot.subsystems.Intake;
+import org.usfirst.frc.team2509.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -39,7 +40,7 @@ public class Robot extends TimedRobot{
 	public static Climber climber;//The climber subsystem
 	public static Gripper gripper;//The gripper subsystem
 	public static Intake intake;//The Intake subsystem
-	
+	public static Vision vision;
 	//Commands
 	public Command autonomousCommand;//The command we send to our robot to tell it where to go during Autonomous
 	public Command operatorDrive;//The command that allows us to drive during TeleOp
@@ -56,11 +57,13 @@ public class Robot extends TimedRobot{
 		climber = new Climber();
 		intake =new Intake();
 		gripper = new Gripper();
+		vision = new Vision();
 		oi = new OI();
 		operatorDrive = new OperatorDrive();
 		SmartDashboard.putData("Auto Chooser", oi.chooser);	
 		oi.UpdateDashboard.start();
 		DriverStation.reportError("Robot Ready", false);
+		vision.visionProcces.start();
 	}
 
 	/**
