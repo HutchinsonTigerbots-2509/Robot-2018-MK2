@@ -63,7 +63,7 @@ public class Robot extends TimedRobot{
 		SmartDashboard.putData("Auto Chooser", oi.chooser);	
 		oi.UpdateDashboard.start();
 		DriverStation.reportError("Robot Ready", false);
-		vision.visionProcces.start();
+//		vision.visionProcces.start();
 	}
 
 	/**

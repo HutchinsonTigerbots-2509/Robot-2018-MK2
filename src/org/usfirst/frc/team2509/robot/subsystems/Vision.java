@@ -8,7 +8,6 @@ import org.opencv.core.MatOfPoint;
 import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team2509.robot.RobotMap;
 
 import edu.wpi.cscore.CvSink;
@@ -61,7 +60,7 @@ public class Vision extends Subsystem {
   	public void process() {
 //  		findContoursOutput.clear();
   		sink.grabFrame(input);
-  		Imgproc.cvtColor(input, hslThresholdOutput, Imgproc.COLOR_BGR2HLS);
+//  		Imgproc.cvtColor(input, hslThresholdOutput, Imgproc.COLOR_BGR2HLS);
 //  		Core.inRange(hslThresholdOutput, new Scalar(0, 45, 120),new Scalar(50, 200, 247), hslThresholdOutput);
 //  		Imgproc.erode(cvErodeSrc, cvErodeOutput, kernel, anchor, (int)cvErodeIterations, cvErodeBordertype, borderValue);
 //  		Imgproc.findContours(findContoursInput, findContoursOutput, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
