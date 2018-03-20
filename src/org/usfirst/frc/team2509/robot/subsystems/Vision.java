@@ -1,16 +1,24 @@
 package org.usfirst.frc.team2509.robot.subsystems;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Point;
+import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
+import org.usfirst.frc.team2509.robot.RobotMap;
 
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -32,44 +40,52 @@ public class Vision extends Subsystem {
   	static {
   		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
   	}
+  	UsbCamera cam = RobotMap.cam;
+  	CvSink sink = CameraServer.getInstance().getVideo();
+  	CvSource outputStream = CameraServer.getInstance().putVideo("ALT-Cam", 160, 120);
+	Mat input = new Mat();
+	Mat cvErodeSrc = hslThresholdOutput;
+	Mat cvErodeKernel = new Mat();
+	Point cvErodeAnchor = new Point(-1, -1);
+	double cvErodeIterations = 1.0;
+	int cvErodeBordertype = Core.BORDER_CONSTANT;
+	Scalar cvErodeBordervalue = new Scalar(-1);
+	Mat kernel = new Mat();
+	Point anchor = new Point(-1,-1);
+	Scalar borderValue = new Scalar(-1);
+	Mat findContoursInput = cvErodeOutput;
+	Mat hierarchy = new Mat();
+	Scalar RED = new Scalar(0, 0, 255);
 
   	/**
   	 * This is the primary method that runs the entire pipeline and updates the outputs.
   	 */
-  	public void process(Mat source0) {
-  		// Step HSL_Threshold0:
-  		Mat hslThresholdInput = source0;
-  		Imgproc.cvtColor(hslThresholdInput, hslThresholdOutput, Imgproc.COLOR_BGR2HLS);
-  		Core.inRange(hslThresholdOutput, new Scalar(0, 45, 120),new Scalar(50, 200, 247), hslThresholdOutput);
-
-  		// Step CV_erode0:
-  		Mat cvErodeSrc = hslThresholdOutput;
-  		Mat cvErodeKernel = new Mat();
-  		Point cvErodeAnchor = new Point(-1, -1);
-  		double cvErodeIterations = 1.0;
-  		int cvErodeBordertype = Core.BORDER_CONSTANT;
-  		Scalar cvErodeBordervalue = new Scalar(-1);
-  		//cvErode(cvErodeSrc, cvErodeKernel, cvErodeAnchor, cvErodeIterations, cvErodeBordertype, cvErodeBordervalue, cvErodeOutput);
-  		Mat kernel = new Mat();
-  		Point anchor = new Point(-1,-1);
-  		Scalar borderValue = new Scalar(-1);
-  		Imgproc.erode(cvErodeSrc, cvErodeOutput, kernel, anchor, (int)cvErodeIterations, cvErodeBordertype, borderValue);
-  		
-  		
-  		
-  		// Step Find_Contours0:
-  		Mat findContoursInput = cvErodeOutput;
-  		boolean findContoursExternalOnly = false;
-  		//findContours(findContoursInput, findContoursExternalOnly, findContoursOutput);
-
-  		Mat hierarchy = new Mat();
+  	public void process() {
   		findContoursOutput.clear();
-  		int mode;
-  		mode = Imgproc.RETR_LIST;
-  		int method = Imgproc.CHAIN_APPROX_SIMPLE;
-  		Imgproc.findContours(findContoursInput, findContoursOutput, hierarchy, mode, method);
-  		
-  		
+  		sink.grabFrame(input);
+  		Imgproc.cvtColor(input, hslThresholdOutput, Imgproc.COLOR_BGR2HLS);
+  		Core.inRange(hslThresholdOutput, new Scalar(0, 45, 120),new Scalar(50, 200, 247), hslThresholdOutput);
+  		Imgproc.erode(cvErodeSrc, cvErodeOutput, kernel, anchor, (int)cvErodeIterations, cvErodeBordertype, borderValue);
+  		Imgproc.findContours(findContoursInput, findContoursOutput, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
+  		for(MatOfPoint mop :findContoursOutput){
+				Rect rec = Imgproc.boundingRect(mop);
+				Imgproc.rectangle(input, rec.br(), rec.tl(), RED);
+			}
+			for(Iterator<MatOfPoint> iterator = findContoursOutput.iterator();iterator.hasNext();){
+				MatOfPoint matOfPoint = (MatOfPoint) iterator.next();
+				Rect rec = Imgproc.boundingRect(matOfPoint);
+				//float aspect = (float)rec.width/(float)rec.height;
+				//if( rec.height < 10 || rec.width < 5||rec.y<75/*||aspect<=1*/){
+				//	iterator.remove();
+				//continue;
+				//}
+				Rect target = rec;
+				SmartDashboard.putNumber("S_Contours", findContoursOutput.size());
+				SmartDashboard.putNumber("S_X", rec.x);
+				SmartDashboard.putNumber("S_Width", rec.width);
+				SmartDashboard.putNumber("S_Height", rec.height);
+			}			
+			outputStream.putFrame(input);  		
   	}
 
   	/**
