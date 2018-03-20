@@ -9,11 +9,10 @@
 
 package org.usfirst.frc.team2509.robot;
 
-import org.usfirst.frc.team2509.robot.commands.ArmDown;
-import org.usfirst.frc.team2509.robot.commands.ArmUp;
+//import org.usfirst.frc.team2509.robot.commands.ArmDown;
+//import org.usfirst.frc.team2509.robot.commands.ArmUp;
 import org.usfirst.frc.team2509.robot.commands.ClimbDown;
 import org.usfirst.frc.team2509.robot.commands.ClimbUp;
-import org.usfirst.frc.team2509.robot.commands.DefualtAuto;
 import org.usfirst.frc.team2509.robot.commands.DropBox;
 import org.usfirst.frc.team2509.robot.commands.Grip;
 import org.usfirst.frc.team2509.robot.commands.IntakeIn;
@@ -21,22 +20,10 @@ import org.usfirst.frc.team2509.robot.commands.IntakeOut;
 import org.usfirst.frc.team2509.robot.commands.ShiftDrive;
 import org.usfirst.frc.team2509.robot.commands.ToggleUpper;
 import org.usfirst.frc.team2509.robot.commands.Wheely;
-import org.usfirst.frc.team2509.robot.commands.one.Auto1A_2;
-import org.usfirst.frc.team2509.robot.commands.one.Auto1B_2;
-import org.usfirst.frc.team2509.robot.commands.one.Auto1C_2;
-import org.usfirst.frc.team2509.robot.commands.one.Auto1F_2;
-import org.usfirst.frc.team2509.robot.commands.three.Auto3A_2;
-import org.usfirst.frc.team2509.robot.commands.three.Auto3B_2;
-import org.usfirst.frc.team2509.robot.commands.three.Auto3D_2;
-import org.usfirst.frc.team2509.robot.commands.three.Auto3E_2;
-import org.usfirst.frc.team2509.robot.commands.two.Auto2A_2;
-import org.usfirst.frc.team2509.robot.commands.two.Auto2B_2;
-import org.usfirst.frc.team2509.robot.commands.two.Auto2C_2;
-import org.usfirst.frc.team2509.robot.commands.two.Auto2D_2;
+import Auto.AutoTest;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+//import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -48,17 +35,17 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class OI {
 	public Joystick OperatorStick;
 	public Joystick CoOperatorStick;
-	private JoystickButton ShiftButton;
-	private JoystickButton wheelyButton;
-	private JoystickButton ArmUpButton;
-	private JoystickButton ArmDownButton;
-	private JoystickButton GripButton;
-	private JoystickButton IntakeInButton;
-	private JoystickButton IntakeOutButton;
-	private JoystickButton RetractButton;
-	private JoystickButton ClimbButton;
-	private JoystickButton ClimbDownButton;
-	private JoystickButton DropBoxButton;
+//	private JoystickButton ShiftButton;
+//	private JoystickButton wheelyButton;
+//	private JoystickButton ArmUpButton;
+//	private JoystickButton ArmDownButton;
+//	private JoystickButton GripButton;
+//	private JoystickButton IntakeInButton;
+//	private JoystickButton IntakeOutButton;
+//	private JoystickButton RetractButton;
+//	private JoystickButton ClimbButton;
+//	private JoystickButton ClimbDownButton;
+//	private JoystickButton DropBoxButton;
 	//private JoystickButton ParaTestButton;
 	public SendableChooser<String> chooser = new SendableChooser<>();
 	public String defaultAuto = "Default";
@@ -100,38 +87,77 @@ public class OI {
 	public OI() {
 		OperatorStick = new Joystick(0);
 		CoOperatorStick = new Joystick(1);
-		ShiftButton = new JoystickButton(OperatorStick, 2);
-			ShiftButton.whenPressed(new ShiftDrive());
-			
-		wheelyButton = new JoystickButton(OperatorStick,3);
-			wheelyButton.toggleWhenActive(new Wheely());
-			
-		ArmUpButton = new JoystickButton(CoOperatorStick, 4);
-			ArmUpButton.whileHeld(new ArmUp());
+//		ShiftButton = new JoystickButton(OperatorStick, 2);
+//			ShiftButton.whenPressed(new ShiftDrive());
+//			
+//		wheelyButton = new JoystickButton(OperatorStick,3);
+//			wheelyButton.toggleWhenActive(new Wheely());
+//			
+//		ArmUpButton = new JoystickButton(CoOperatorStick, 4);
+//			ArmUpButton.whileHeld(new ArmUp());
+//		
+//		ArmDownButton = new JoystickButton(CoOperatorStick, 8);
+//			ArmDownButton.whileHeld(new ArmDown());
+//		
+//		RetractButton = new JoystickButton(CoOperatorStick, 7);
+//			RetractButton.toggleWhenPressed(new ToggleUpper());
+//	
+//		GripButton = new JoystickButton(CoOperatorStick, 1);
+//			GripButton.toggleWhenPressed(new Grip());
+//		
+//		IntakeInButton = new JoystickButton(OperatorStick, 1);
+//			IntakeInButton.whileHeld(new IntakeIn());
+//		
+//		IntakeOutButton = new JoystickButton(OperatorStick, 10);
+//			IntakeOutButton.whileHeld(new IntakeOut());
+//		
+//		ClimbButton = new JoystickButton(CoOperatorStick, 5);
+//			ClimbButton.whileHeld(new ClimbUp());
+//		
+//		ClimbDownButton = new JoystickButton(CoOperatorStick, 9);
+//			ClimbDownButton.whileHeld(new ClimbDown());
+//			
+//		DropBoxButton = new JoystickButton(CoOperatorStick,6);
+//			DropBoxButton.whileHeld(new DropBox());
+		int input = CoOperatorStick.getPOV();
 		
-		ArmDownButton = new JoystickButton(CoOperatorStick, 8);
-			ArmDownButton.whileHeld(new ArmDown());
+		if(input == 0)
+		{
+			Robot.drivetrain.getDrive().tankDrive(0.7,0.7);
+		}
+		if(input == 45)
+		{
+			Robot.drivetrain.getDrive().tankDrive(0.7,0.55);
+		}
+		if(input == 90)
+		{
+			Robot.drivetrain.getDrive().tankDrive(0.6, 0.3);
+		}
+		if(input == 135)
+		{
+			Robot.drivetrain.getDrive().tankDrive(-0.4,-0.5);
+		}
+		if(input == 180)
+		{
+			Robot.drivetrain.getDrive().tankDrive( - 0.5, - 0.5);
+		}
+		if(input == 225)
+		{
+			Robot.drivetrain.getDrive().tankDrive(-0.5, -0.4);
+		}
+		if(input == 270)
+		{
+			Robot.drivetrain.getDrive().tankDrive( 0.3, 0.6);
+		}
+		if(input == 315)
+		{
+			Robot.drivetrain.getDrive().tankDrive(0.55,0.7);
+		}
+		else
+		{
+			Robot.drivetrain.getDrive().tankDrive(0.0,0.0);
+		}
 		
-		RetractButton = new JoystickButton(CoOperatorStick, 7);
-			RetractButton.toggleWhenPressed(new ToggleUpper());
-	
-		GripButton = new JoystickButton(CoOperatorStick, 1);
-			GripButton.toggleWhenPressed(new Grip());
-		
-		IntakeInButton = new JoystickButton(OperatorStick, 1);
-			IntakeInButton.whileHeld(new IntakeIn());
-		
-		IntakeOutButton = new JoystickButton(OperatorStick, 10);
-			IntakeOutButton.whileHeld(new IntakeOut());
-		
-		ClimbButton = new JoystickButton(CoOperatorStick, 5);
-			ClimbButton.whileHeld(new ClimbUp());
-		
-		ClimbDownButton = new JoystickButton(CoOperatorStick, 9);
-			ClimbDownButton.whileHeld(new ClimbDown());
-			
-		DropBoxButton = new JoystickButton(CoOperatorStick,6);
-			DropBoxButton.whileHeld(new DropBox());
 			
 		chooser.addDefault("Default Auto", defaultAuto);
 		chooser.addObject("1X", X1);
@@ -174,79 +200,7 @@ public class OI {
 	});
 	public Command getAutonomous(String autoChoice){
 		
-		String gameData = DriverStation.getInstance().getGameSpecificMessage();
-		SmartDashboard.putString("Game Data", gameData);
-		SmartDashboard.putString("AutoSelect", autoChoice);
-		switch(autoChoice) {
-		case "1X":
-			autoCommand = null;
-			break;
-		case "1AB":
-			if(gameData.length()>0) {
-				if(gameData.charAt(0)=='L') {
-					autoCommand = new Auto1A_2();
-				}else if(gameData.charAt(0)=='R') {
-					autoCommand = new Auto1B_2();
-				}
-			}
-			break;
-		case "1CF":
-			if(gameData.length()>0) {
-				if(gameData.charAt(0)=='L') {
-					autoCommand = new Auto1C_2();
-				}else if(gameData.charAt(0)=='R') {
-					autoCommand = new Auto1F_2();
-				}
-			}
-			break;
-		case "2X":
-			autoCommand = null;
-			break;
-		case "2AB":
-			if(gameData.length()>0) {
-				if(gameData.charAt(0)=='L') {
-					autoCommand = new Auto2A_2();
-				}else if(gameData.charAt(0)=='R') {
-					autoCommand = new Auto2B_2();
-				}
-			}
-			break;
-		case "2CD":
-			if(gameData.length()>0) {
-				if(gameData.charAt(0)=='L') {
-					autoCommand = new Auto2C_2();
-				}else if(gameData.charAt(0)=='R') {
-					autoCommand = new Auto2D_2();
-				}
-			}
-			break;
-		case "3AB":
-			if(gameData.length()>0) {
-				if(gameData.charAt(0)=='L') {
-					autoCommand = new Auto3A_2();
-					SmartDashboard.putString("Auto", "3A");
-				}else if(gameData.charAt(0)=='R') {
-					autoCommand = new Auto3B_2();
-					SmartDashboard.putString("Auto", "3B");
-				}
-			}
-			break;
-		case "3DE":
-			if(gameData.length()>0) {
-				if(gameData.charAt(0)=='L') {
-					autoCommand = new Auto3E_2();
-					SmartDashboard.putString("Auto", "3E");
-				}else if(gameData.charAt(0)=='R') {
-					SmartDashboard.putString("Auto", "3D");
-					autoCommand = new Auto3D_2();
-				}
-			}
-			break;
-		case "Default":
-			default:
-				autoCommand = new DefualtAuto();
-				break;
-		}
+		autoCommand = new AutoTest();
 		return autoCommand;
 			
 	}
