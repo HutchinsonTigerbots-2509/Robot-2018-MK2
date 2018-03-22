@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *Moves the arm down
  */
 public class ArmDown extends Command {
-	private static Arm arm = Robot.arm;
+	private Arm arm = Robot.arm;
     public ArmDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

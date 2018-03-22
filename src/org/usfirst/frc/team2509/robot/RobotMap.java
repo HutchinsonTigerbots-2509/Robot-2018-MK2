@@ -66,10 +66,7 @@ public class RobotMap {
 	 */
 	public static void init(){
 		comp = new Compressor();
-		cam = CameraServer.getInstance().startAutomaticCapture();
-		cam.setBrightness(35);
-		cam.setFPS(25);
-//		cam.setResolution(160, 120);
+		
 		//Drivetrain Variable Initialize
 		DriveTrain_Shifter = new DoubleSolenoid(0,1);		
 		
@@ -129,5 +126,13 @@ public class RobotMap {
 		Climb_Motor1 = new VictorSP(2);
 		Climb_Motor2 = new VictorSP(3);
 		Climb_motors = new SpeedControllerGroup(Climb_Motor1,Climb_Motor2);
+		
+		//Vision Variable
+
+		cam = CameraServer.getInstance().startAutomaticCapture();
+		cam.setBrightness(35);
+		cam.setFPS(25);
+		cam.setResolution(640, 480);
+//		cam.setResolution(160, 120);
 	}
 }
