@@ -11,6 +11,7 @@ package org.usfirst.frc.team2509.robot;
 
 import org.usfirst.frc.team2509.robot.commands.ArmDown;
 import org.usfirst.frc.team2509.robot.commands.ArmUp;
+import org.usfirst.frc.team2509.robot.commands.BoxPickup;
 import org.usfirst.frc.team2509.robot.commands.ClimbDown;
 import org.usfirst.frc.team2509.robot.commands.ClimbUp;
 import org.usfirst.frc.team2509.robot.commands.DefualtAuto;
@@ -58,7 +59,7 @@ public class OI {
 	private JoystickButton ClimbButton;//Shoots up climber system
 	private JoystickButton ClimbDownButton;//Pulls the robot up
 	private JoystickButton PushBoxButton;//Pushes box out using the piston located at in middle of the front side of the robot
-	//private JoystickButton ParaTestButton;
+	private JoystickButton PickBoxButton;
 	public SendableChooser<String> chooser = new SendableChooser<>();
 	public String defaultAuto = "Default";
 	public String X1 = "1X";
@@ -133,6 +134,9 @@ public class OI {
 		PushBoxButton = new JoystickButton(CoOperatorStick,2);
 			PushBoxButton.whileHeld(new PushBox());
 			
+		PickBoxButton = new JoystickButton(CoOperatorStick,10);
+			PickBoxButton.toggleWhenPressed(new BoxPickup());
+			
 		chooser.addDefault("Default Auto", defaultAuto);
 		chooser.addObject("1X", X1);
 		chooser.addObject("1AB", AB1);
@@ -167,8 +171,9 @@ public class OI {
 			SmartDashboard.putNumber("Right Encoder", Robot.drivetrain.getRightEncoder().get());
 			SmartDashboard.putNumber("Gyro", Robot.drivetrain.getGyro().getAngle());
 			SmartDashboard.putNumber("Accel", Robot.drivetrain.getGyro().getRawAccelY());
+			SmartDashboard.putBoolean("Arm Lower", Robot.arm.getLowerLimit().get());
+			SmartDashboard.putBoolean("Arm Upper", Robot.arm.getUpperLimit().get());
 
-			SmartDashboard.putBoolean("Arm Limit", Robot.arm.getLimit().get());
 			SmartDashboard.putBoolean("Shifted", Robot.drivetrain.isShifted());
 //    		SmartDashboard.putNumber("Left Motors", Robot.drivetrain.getLeft().get());
 //    		SmartDashboard.putNumber("Right Motors", Robot.drivetrain.getRight().get());

@@ -48,7 +48,7 @@ public class DriveTrain extends Subsystem implements PIDOutput{
      * @param stick
      */
     public static void drive(Joystick stick) {
-    	Drive.arcadeDrive(slowReverse(getScaledDrive(-stick.getY())), getScaledDrive(-stick.getZ()));
+    	Drive.arcadeDrive(getScaledDrive(-stick.getY()), getScaledDrive(-stick.getZ()));
     }
     /**
      * 
@@ -70,12 +70,12 @@ public class DriveTrain extends Subsystem implements PIDOutput{
     	LeftEncoder.reset();
     }
     public boolean isShifted(){
-    		if(Shifter.get() == DoubleSolenoid.Value.kForward) { 
-    			SmartDashboard.putString("isShifted", "lowGear");
+    		if(Shifter.get() == DoubleSolenoid.Value.kReverse) { 
+    			SmartDashboard.putString("isShifted", "fastGear");
     			return true;
     			}
-        	else if(Shifter.get() == DoubleSolenoid.Value.kReverse) {
-        		SmartDashboard.putString("isShifted", "highGear");
+        	else if(Shifter.get() == DoubleSolenoid.Value.kForward) {
+        		SmartDashboard.putString("isShifted", "slowGear");
         		return false;
         	}
         	else {return true;}

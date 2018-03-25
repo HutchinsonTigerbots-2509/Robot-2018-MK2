@@ -2,6 +2,7 @@ package org.usfirst.frc.team2509.robot.commands.one;
 
 import org.usfirst.frc.team2509.robot.commands.ArmDown;
 import org.usfirst.frc.team2509.robot.commands.ArmUp;
+import org.usfirst.frc.team2509.robot.commands.BoxPickup;
 import org.usfirst.frc.team2509.robot.commands.DriveForward;
 import org.usfirst.frc.team2509.robot.commands.DriveTurn;
 import org.usfirst.frc.team2509.robot.commands.DriveTurnCorrection;
@@ -40,7 +41,7 @@ public class Auto1F_2 extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new DriveForward(205));
+    	addSequential(new DriveForward(202));
     	addSequential(new DriveTurn(90));
     	addSequential(new DriveTurnCorrection(90));
     	addParallel(new ArmUp());
@@ -52,7 +53,13 @@ public class Auto1F_2 extends CommandGroup {
     	//Drop Box
     	addSequential(new OpenGripper());
     	//
-    	addSequential(new driveBackward(15));
+    	addSequential(new driveBackward(5));
     	addSequential(new ArmDown());
+    	addSequential(new BoxPickup());
+    	addSequential(new DriveTurnCorrection(0));
+    	addSequential(new driveBackward(5));
+    	addSequential(new ArmUp());
+    	addSequential(new DriveForward(5));
+    	addSequential(new OpenGripper());  
     }
 }

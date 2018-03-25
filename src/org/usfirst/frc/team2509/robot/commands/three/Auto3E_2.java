@@ -2,6 +2,7 @@ package org.usfirst.frc.team2509.robot.commands.three;
 
 import org.usfirst.frc.team2509.robot.commands.ArmDown;
 import org.usfirst.frc.team2509.robot.commands.ArmUp;
+import org.usfirst.frc.team2509.robot.commands.BoxPickup;
 import org.usfirst.frc.team2509.robot.commands.DriveForward;
 import org.usfirst.frc.team2509.robot.commands.DriveTurn;
 import org.usfirst.frc.team2509.robot.commands.DriveTurnCorrection;
@@ -40,19 +41,25 @@ public class Auto3E_2 extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-    	addSequential(new DriveForward(205));
+    	addSequential(new DriveForward(202));
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
     	addParallel(new ArmUp());
-    	addSequential(new DriveForward(150)); 
+    	addSequential(new DriveForward(135)); 
     	addSequential(new ArmUp());
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
-    	addSequential(new DriveForward(25));
+    	addSequential(new DriveForward(10));
     	//Drop Box
     	addSequential(new OpenGripper());
     	//
     	addSequential(new driveBackward(5));
     	addSequential(new ArmDown());
+    	addSequential(new BoxPickup());
+    	addSequential(new DriveTurnCorrection(0));
+    	addSequential(new driveBackward(5));
+    	addSequential(new ArmUp());
+    	addSequential(new DriveForward(5));
+    	addSequential(new OpenGripper());    	
     }
 }

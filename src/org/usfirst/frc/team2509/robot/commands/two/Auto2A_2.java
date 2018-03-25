@@ -2,6 +2,7 @@ package org.usfirst.frc.team2509.robot.commands.two;
 
 import org.usfirst.frc.team2509.robot.commands.ArmDown;
 import org.usfirst.frc.team2509.robot.commands.ArmUp;
+import org.usfirst.frc.team2509.robot.commands.BoxPickup;
 import org.usfirst.frc.team2509.robot.commands.DriveForward;
 import org.usfirst.frc.team2509.robot.commands.DriveTurn;
 import org.usfirst.frc.team2509.robot.commands.DriveTurnCorrection;
@@ -43,15 +44,19 @@ public class Auto2A_2 extends CommandGroup {
     	addSequential(new DriveForward(35));
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
-    	addSequential(new DriveForward(37)); 
+    	addSequential(new DriveForward(27.5)); 
     	addSequential(new DriveTurn(90));
     	addSequential(new DriveTurnCorrection(90));
-    	addSequential(new ArmUp());
+    	addParallel(new ArmUp());
     	addSequential(new DriveForward(30));
     	//Drop Box
     	addSequential(new OpenGripper());
     	//
-    	addSequential(new driveBackward(15));
+    	addSequential(new DriveTurn(75));
     	addSequential(new ArmDown());
+    	addSequential(new DriveForward(5));
+    	addSequential(new BoxPickup());
+    	addSequential(new driveBackward(5));
+    	addSequential(new DriveTurnCorrection(90));
     }
 }

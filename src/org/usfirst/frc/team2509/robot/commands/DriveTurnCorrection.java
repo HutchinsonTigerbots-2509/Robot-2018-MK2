@@ -28,11 +28,11 @@ public class DriveTurnCorrection extends Command {
     	if(drive.getGyro().getAngle()>target) {
     		turnRight = true;
     		turnLeft = false;
-    		drive.getDrive().tankDrive(-0.4,0.4);
+    		drive.getDrive().tankDrive(-0.65,0.6);
     	}else if(drive.getGyro().getAngle()<target){
     		turnRight = false;
     		turnLeft = true;
-    		drive.getDrive().tankDrive(0.4, -0.4);
+    		drive.getDrive().tankDrive(0.6, -0.6);
 //    	drive.getDrive().arcadeDrive(0, 0.6);
 //    	drive.getDrive().tankDrive(-0.6, 0.6);
     	}else {
@@ -44,9 +44,9 @@ public class DriveTurnCorrection extends Command {
     protected void execute() {
 //    	drive.getDrive().tankDrive(-0.6, 0.6);
     	if(turnRight) {
-    		drive.getDrive().tankDrive(0.5,-0.5);
+    		drive.getDrive().tankDrive(0.65,-0.65);
     	}else if(turnLeft) {
-    		drive.getDrive().tankDrive(-0.5, 0.5);
+    		drive.getDrive().tankDrive(-0.65, 0.65);
     	}else {
     		end();
     	}

@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Arm extends Subsystem {
 	private static DoubleSolenoid piston = RobotMap.Arm_Piston;
 	private static DoubleSolenoid punch = RobotMap.Arm_Punch;
-	private static DigitalInput limit = RobotMap.Arm_Limit;
+	private static DigitalInput lowerLimit = RobotMap.Arm_LowerLimit;
+	private static DigitalInput upperLimit = RobotMap.Arm_UpperLimit;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -62,7 +63,10 @@ public class Arm extends Subsystem {
     public DoubleSolenoid getPunch() {
     	return punch;
     }
-    public DigitalInput getLimit() {
-    	return limit;
+    public DigitalInput getLowerLimit() {
+    	return lowerLimit;
+    }
+    public DigitalInput getUpperLimit() {
+    	return upperLimit;
     }
   }

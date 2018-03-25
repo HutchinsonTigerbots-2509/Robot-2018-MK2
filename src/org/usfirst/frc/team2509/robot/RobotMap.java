@@ -49,7 +49,8 @@ public class RobotMap {
 	//Arm Variable
 	public static DoubleSolenoid Arm_Piston;//The piston that lifts the arm Up or Down
 	public static DoubleSolenoid Arm_Punch;//Pushes the box out if we don't like it
-	public static DigitalInput Arm_Limit;
+	public static DigitalInput Arm_LowerLimit;
+	public static DigitalInput Arm_UpperLimit;
 	//Gripper Variable
 	public static DigitalInput Gripper_Limit;
 	public static DoubleSolenoid Gripper_Piston;//The piston that opens and closes the gripper
@@ -107,8 +108,10 @@ public class RobotMap {
 		//Arm Variable Initialize
 		Arm_Piston = new DoubleSolenoid(2,3);
 		Arm_Punch = new DoubleSolenoid(4,5);
-		Arm_Limit = new DigitalInput(4);
-		SmartDashboard.putBoolean("Arm Limit", Arm_Limit.get());
+		Arm_LowerLimit = new DigitalInput(5);
+		Arm_UpperLimit = new DigitalInput(4);
+		SmartDashboard.putBoolean("Arm Lower", Arm_LowerLimit.get());
+		SmartDashboard.putBoolean("Arm Upper", Arm_UpperLimit.get());
 		
 		//Gripper Variable Initialize
 		Gripper_Limit = new DigitalInput(10);
@@ -120,7 +123,9 @@ public class RobotMap {
 		Intake_Piston = new DoubleSolenoid(1, 0, 1);
 		
 		Intake_LeftMotor = new VictorSP(0);
+		Intake_LeftMotor.setInverted(true);
 		Intake_RightMotor = new VictorSP(1);
+//		Intake_RightMotor.setInverted(true);
 		
 		//Climb Variable Initialize
 		Climb_Motor1 = new VictorSP(2);
@@ -131,8 +136,8 @@ public class RobotMap {
 
 		cam = CameraServer.getInstance().startAutomaticCapture();
 		cam.setBrightness(35);
-		cam.setFPS(25);
-		cam.setResolution(640, 480);
+		cam.setFPS(30);
+//		cam.setResolution(640, 480);
 //		cam.setResolution(160, 120);
 	}
 }

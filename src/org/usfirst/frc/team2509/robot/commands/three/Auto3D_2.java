@@ -46,7 +46,7 @@ public class Auto3D_2 extends CommandGroup {
 //    	addSequential(new ArmUp());
     	addParallel(new ArmUp());
     	addSequential(new DriveTurnCorrection(-90));
-    	addSequential(new DriveForward(25));
+    	addSequential(new DriveForward(15));
     	//Drop Box
     	addSequential(new OpenGripper());
     	//
