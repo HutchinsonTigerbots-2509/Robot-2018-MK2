@@ -35,6 +35,11 @@ public class DriveForward extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	drive.getDrive().arcadeDrive(0.7, drive.getGyro().getAngle()*(0.1));
+//    	if((distanceRight()>(target*0.25)||distanceLeft()>(target*0.25))&&(distanceRight()<(target*0.8)||distanceLeft()<(target*0.8))){
+//    		drive.highGear();
+//    	}else {
+//    		drive.lowGear();
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -53,4 +58,10 @@ public class DriveForward extends Command {
     protected void interrupted() {
     	end();
     }
+//    private double distanceRight() {
+//    	return drive.getRightEncoder().get();
+//    }
+//    private double distanceLeft() {
+//    	return drive.getLeftEncoder().get();
+//    }
 }
