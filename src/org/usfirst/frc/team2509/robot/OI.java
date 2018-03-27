@@ -14,6 +14,7 @@ import org.usfirst.frc.team2509.robot.commands.ArmUp;
 import org.usfirst.frc.team2509.robot.commands.BoxPickup;
 import org.usfirst.frc.team2509.robot.commands.ClimbDown;
 import org.usfirst.frc.team2509.robot.commands.ClimbUp;
+import org.usfirst.frc.team2509.robot.commands.CompressorToggle;
 import org.usfirst.frc.team2509.robot.commands.DefualtAuto;
 import org.usfirst.frc.team2509.robot.commands.Grip;
 import org.usfirst.frc.team2509.robot.commands.IntakeIn;
@@ -59,7 +60,9 @@ public class OI {
 	private JoystickButton ClimbButton;//Shoots up climber system
 	private JoystickButton ClimbDownButton;//Pulls the robot up
 	private JoystickButton PushBoxButton;//Pushes box out using the piston located at in middle of the front side of the robot
+	private JoystickButton KickBoxButton;
 	private JoystickButton PickBoxButton;
+	private JoystickButton CompButton;
 	public SendableChooser<String> chooser = new SendableChooser<>();
 	public String defaultAuto = "Default";
 	public String X1 = "1X";
@@ -130,12 +133,17 @@ public class OI {
 		
 		ClimbDownButton = new JoystickButton(CoOperatorStick, 9);
 			ClimbDownButton.whileHeld(new ClimbDown());
-			
-		PushBoxButton = new JoystickButton(CoOperatorStick,2);
+
+		PushBoxButton = new JoystickButton(CoOperatorStick,8);
 			PushBoxButton.whileHeld(new PushBox());
+		KickBoxButton = new JoystickButton(CoOperatorStick,2);
+			KickBoxButton.whileHeld(new PushBox());
 			
 		PickBoxButton = new JoystickButton(CoOperatorStick,10);
 			PickBoxButton.toggleWhenPressed(new BoxPickup());
+			
+		CompButton = new JoystickButton(CoOperatorStick,7);
+			CompButton.toggleWhenActive(new CompressorToggle());
 			
 		chooser.addDefault("Default Auto", defaultAuto);
 		chooser.addObject("1X", X1);
