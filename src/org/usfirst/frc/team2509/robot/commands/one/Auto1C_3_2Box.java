@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2509.robot.commands.three;
+package org.usfirst.frc.team2509.robot.commands.one;
 
 import org.usfirst.frc.team2509.robot.commands.ArmDown;
 import org.usfirst.frc.team2509.robot.commands.ArmUp;
@@ -12,7 +12,7 @@ import org.usfirst.frc.team2509.robot.commands.driveBackward;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *1			 C
+ *1		 C
  *		A |-----| E
  *		  |     |
  *		  |     |
@@ -20,11 +20,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *		B |-----| F
  *3			 D
  *
- *We are going to 'D' position from '3'
+ *We are going to the 'C' position from '1'
  */
-public class Auto3D_2 extends CommandGroup {
+public class Auto1C_3_2Box extends CommandGroup {
 
-    public Auto3D_2() {
+    public Auto1C_3_2Box() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -41,27 +41,25 @@ public class Auto3D_2 extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-//    	addParallel(new ArmUp());
-    	addSequential(new DriveForward(140));
-    	addSequential(new DriveTurn(-90));
-//    	addSequential(new ArmUp());
-    	addParallel(new ArmUp());
-    	addSequential(new DriveTurnCorrection(-90));
-    	addSequential(new DriveForward(15));
+    	addSequential(new DriveForward(125));
+    	addSequential(new ArmUp());
+    	addSequential(new DriveTurn(90));
+    	addSequential(new DriveTurnCorrection(90));
+    	addSequential(new DriveForward(5));
     	//Drop Box
     	addSequential(new OpenGripper());
     	//
-    	addSequential(new driveBackward(15));
+    	addSequential(new driveBackward());
     	addSequential(new ArmDown());
     	//Start of box 2
-    	addSequential(new DriveTurn(90));
-    	addSequential(new DriveTurnCorrection(90));
-    	addSequential(new DriveForward(50));
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
-    	addSequential(new DriveForward(20));
+    	addSequential(new DriveForward(50));
     	addSequential(new DriveTurn(90));
     	addSequential(new DriveTurnCorrection(90));
+    	addSequential(new DriveForward(20));
+    	addSequential(new DriveTurn(-90));
+    	addSequential(new DriveTurnCorrection(-90));
     	addSequential(new BoxPickup());
     	addSequential(new driveBackward(10));
     	addSequential(new ArmUp());
