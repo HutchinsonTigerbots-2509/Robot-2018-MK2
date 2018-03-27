@@ -24,7 +24,7 @@ import org.usfirst.frc.team2509.robot.commands.ShiftDrive;
 import org.usfirst.frc.team2509.robot.commands.ToggleUpper;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1A_2;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1B_2;
-import org.usfirst.frc.team2509.robot.commands.one.Auto1C_2;
+import org.usfirst.frc.team2509.robot.commands.one.Auto1C_3_2Box;
 import org.usfirst.frc.team2509.robot.commands.one.Auto1F_2;
 import org.usfirst.frc.team2509.robot.commands.three.Auto3A_2;
 import org.usfirst.frc.team2509.robot.commands.three.Auto3B_2;
@@ -214,7 +214,7 @@ public class OI {
 		case "1CF":
 			if(gameData.length()>0) {
 				if(gameData.charAt(0)=='L') {
-					autoCommand = new Auto1C_2();
+					autoCommand = new Auto1C_3_2Box();
 				}else if(gameData.charAt(0)=='R') {
 					autoCommand = new Auto1F_2();
 				}
