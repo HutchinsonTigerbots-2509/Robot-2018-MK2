@@ -29,6 +29,7 @@ public class Auto1C_3_2Box extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
+    	//Reason
 
         // To run multiple commands at the same time,
         // use addParallel()
@@ -41,8 +42,8 @@ public class Auto1C_3_2Box extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+    	addParallel(new ArmUp());
     	addSequential(new DriveForward(125));
-    	addSequential(new ArmUp());
     	addSequential(new DriveTurn(90));
     	addSequential(new DriveTurnCorrection(90));
     	addSequential(new DriveForward(5));

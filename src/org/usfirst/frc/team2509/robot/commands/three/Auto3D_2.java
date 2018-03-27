@@ -60,8 +60,8 @@ public class Auto3D_2 extends CommandGroup {
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
     	addSequential(new DriveForward(20));
-    	addSequential(new DriveTurn(90));
-    	addSequential(new DriveTurnCorrection(90));
+    	addSequential(new DriveTurn(-90));
+    	addSequential(new DriveTurnCorrection(-90));
     	addSequential(new BoxPickup());
     	addSequential(new driveBackward(10));
     	addSequential(new ArmUp());
