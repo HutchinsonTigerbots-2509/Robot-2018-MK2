@@ -28,15 +28,15 @@ public class driveBackward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.println(DriverStation.getInstance().getMatchTime()+"Driving Backwards");
+    	System.out.println(DriverStation.getInstance().getMatchTime()+" - Driving Backwards");
     	drive.sensorReset();
     	Timer.delay(0.1);
-    	drive.getDrive().arcadeDrive(-0.7, drive.getGyro().getAngle()*(0.1));
+    	drive.getDrive().arcadeDrive(-0.6, drive.getGyro().getAngle()*(0.1));
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drive.getDrive().arcadeDrive(-0.7, drive.getGyro().getAngle()*(0.1));
+    	drive.getDrive().arcadeDrive(-0.6, drive.getGyro().getAngle()*(0.1));
     }
 
     // Make this return true when this Command no longer needs to run execute()

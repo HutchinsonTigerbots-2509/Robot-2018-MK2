@@ -51,21 +51,22 @@ public class Auto3D_2 extends CommandGroup {
     	//Drop Box
     	addSequential(new OpenGripper());
     	//
-    	addSequential(new driveBackward(15));
+    	addSequential(new driveBackward(5));
     	addSequential(new ArmDown());
     	//Start of box 2
     	addSequential(new DriveTurn(90));
     	addSequential(new DriveTurnCorrection(90));
-    	addSequential(new DriveForward(50));
+    	addSequential(new DriveForward(35));
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
     	addSequential(new DriveForward(20));
     	addSequential(new DriveTurn(-90));
     	addSequential(new DriveTurnCorrection(-90));
     	addSequential(new BoxPickup());
+    	addParallel(new ArmUp());
     	addSequential(new driveBackward(10));
-    	addSequential(new ArmUp());
     	addSequential(new DriveForward(5));
+    	addSequential(new OpenGripper());
     	addSequential(new driveBackward(10));
     	addSequential(new ArmDown());
     }

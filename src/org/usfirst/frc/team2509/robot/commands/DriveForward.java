@@ -26,15 +26,15 @@ public class DriveForward extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
 
-    	System.out.println(DriverStation.getInstance().getMatchTime()+"Driving Forwards");
+    	System.out.println(DriverStation.getInstance().getMatchTime()+" - Driving Forwards");
     	drive.sensorReset();
     	Timer.delay(0.1);
-    	drive.getDrive().arcadeDrive(0.7, drive.getGyro().getAngle()*(0.1));
+    	drive.getDrive().arcadeDrive(0.6, drive.getGyro().getAngle()*(0.1));
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	drive.getDrive().arcadeDrive(0.7, drive.getGyro().getAngle()*(0.1));
+    	drive.getDrive().arcadeDrive(0.6, drive.getGyro().getAngle()*(0.1));
 //    	if((distanceRight()>(target*0.25)||distanceLeft()>(target*0.25))&&(distanceRight()<(target*0.8)||distanceLeft()<(target*0.8))){
 //    		drive.highGear();
 //    	}else {

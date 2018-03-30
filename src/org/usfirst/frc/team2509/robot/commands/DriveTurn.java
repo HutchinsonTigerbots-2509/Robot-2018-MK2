@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveTurn extends Command {
 	private DriveTrain drive = Robot.drivetrain;
 	public double target = 0;
-	private double turnSpeed = 0.7;
+	private double turnSpeed = 0.57575;
 	private Boolean turnRight;
 	private Boolean turnLeft;
     public DriveTurn(double targetAngle) {
@@ -32,11 +32,11 @@ public class DriveTurn extends Command {
     	if(drive.getGyro().getAngle()>target) {
     		turnRight = true;
     		turnLeft = false;
-    		drive.getDrive().tankDrive(-0.7,0.7);//0.7
+    		drive.getDrive().tankDrive(-0.57575,0.57575);//0.57575
     	}else if(drive.getGyro().getAngle()<target){
     		turnRight = false;
     		turnLeft = true;
-    		drive.getDrive().tankDrive(0.7, -0.7);//0.7
+    		drive.getDrive().tankDrive(0.57575, -0.57575);//0.57575
 //    	drive.getDrive().arcadeDrive(0, 0.6);
 //    	drive.getDrive().tankDrive(-0.6, 0.6);
     	}else {
@@ -48,9 +48,9 @@ public class DriveTurn extends Command {
     protected void execute() {
 //    	drive.getDrive().tankDrive(-0.6, 0.6);
     	if(turnRight) {
-    		drive.getDrive().tankDrive(0.7,-0.7);
+    		drive.getDrive().tankDrive(0.57575,-0.57575);
     	}else if(turnLeft) {
-    		drive.getDrive().tankDrive(-0.7, 0.7);
+    		drive.getDrive().tankDrive(-0.57575, 0.57575);
     	}else {
     		end();
     	}

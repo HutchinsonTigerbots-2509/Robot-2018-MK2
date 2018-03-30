@@ -149,13 +149,11 @@ public class OI {
 		chooser.addObject("1X", X1);
 		chooser.addObject("1AB", AB1);
 		chooser.addObject("1CF", CF1);
-		chooser.addObject("1IH", IH1);
 		chooser.addObject("2X", X2);
 		chooser.addObject("2AB", AB2);
 		chooser.addObject("2CD", CD2);
 		chooser.addObject("3AB", AB3);
 		chooser.addObject("3DE", DE3);
-		chooser.addObject("3GJ", GJ3);
 		SmartDashboard.putData("Auto Chooser", chooser);
 		
 

@@ -123,9 +123,9 @@ public class RobotMap {
 		Intake_Piston = new DoubleSolenoid(1, 0, 1);
 		
 		Intake_LeftMotor = new VictorSP(0);
-		Intake_LeftMotor.setInverted(true);
+//		Intake_LeftMotor.setInverted(true);
 		Intake_RightMotor = new VictorSP(1);
-//		Intake_RightMotor.setInverted(true);
+		Intake_RightMotor.setInverted(true);
 		
 		//Climb Variable Initialize
 		Climb_Motor1 = new VictorSP(2);
